@@ -9,7 +9,7 @@ Chain of production
 ----------------
 With features such as "Chain of production", an item to be made will first go through various types of factories such as: gathering the raw material, then the material will go to the production of the item, and finally the packaging. After all that it will be shipped to local commercial buildings or exported.
 
-Shops will need to mantain inventory and basic office supplies in order to sell anything.
+Shops will need to mantain inventory and basic office supplies in order to function.
 
 All this interactions will be handled by the AI, however, it's your job to keep the economy growing and create custom incentives
 to industry, commericial and residential to prosper.
