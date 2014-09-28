@@ -11,7 +11,7 @@ With features such as "Chain of production", an item to be made will first go th
 
 Shops will need to mantain inventory and basic office supplies in order to function.
 
-All this interactions will be handled by the AI, however, it's your job to keep the economy growing and create custom incentives
+All these interactions will be handled by the AI, however, it's your job to keep the economy growing and create custom incentives
 to industry, commericial and residential to prosper.
 
 Total control over the economy with custom incentives
