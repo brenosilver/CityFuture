@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using CityFuture.Buildings.Enums;
+using CityFuture.Buildings.Helpers;
 
 namespace CityFuture.Buildings{
 	public class Residential : Building
@@ -8,19 +9,20 @@ namespace CityFuture.Buildings{
 		private ResidentialType residential_type;
 		private ResidentialSize residential_size;
 		private ResidentialVariation residential_variation;
-
 		private int kids, elders, adults;
 
-		// 3 argument constructor
-		public Residential (GameObject obj, ResidentialType type, ResidentialSize size,
-		                    ResidentialVariation variation) :base(obj)
+		// Add building Component to the gameObject
+		public static Residential CreateComponent (GameObject where,
+		                                           ResidentialType parameter1,
+		                                           ResidentialSize parameter2,
+		                                           ResidentialVariation parameter3)
 		{
-			this.residential_type = type;
-			this.residential_size = size;
-			this.residential_variation = variation;
-			this.kids = 0;
-			this.elders = 0;
-			this.adults = 0;
+			Residential myC = where.AddComponent<Residential>();
+			myC.residential_type = parameter1;
+			myC.residential_size = parameter2;
+			myC.residential_variation = parameter3;
+
+			return myC;
 		}
 
 		//TODO implement method

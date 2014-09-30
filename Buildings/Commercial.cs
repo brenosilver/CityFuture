@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using CityFuture.Buildings.Enums;
+using CityFuture.Buildings.Helpers;
 
 namespace CityFuture.Buildings{
 	public class Commercial : Building
@@ -8,17 +9,19 @@ namespace CityFuture.Buildings{
 		private CommercialType commercial_type;
 		private CommercialSize commercial_size;
 		private CommercialVariation commercial_variation;
-		
 		private int employees;
 
-		// 3 argument contructor
-		public Commercial (GameObject obj, CommercialType type, CommercialSize size,
-		                   CommercialVariation variation) :base(obj)
+		public static Commercial CreateComponent(GameObject where,
+		                                         CommercialType parameter1,
+		                                         CommercialSize parameter2,
+		                                         CommercialVariation parameter3)
 		{
-			this.commercial_type = type;
-			this.commercial_size = size;
-			this.commercial_variation = variation;
-			this.employees = 0;
+			Commercial myC = where.AddComponent<Commercial>();
+			myC.commercial_type = parameter1;
+			myC.commercial_size = parameter2;
+			myC.commercial_variation = parameter3;
+
+			return myC;
 		}
 		
 		//TODO implement method

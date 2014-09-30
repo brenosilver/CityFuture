@@ -10,9 +10,8 @@ namespace CityFuture.Buildings{
 		private int income, expenses, liquid_earnings;
 		private bool isEnergy, isWater;
 		private int to_upgrade; // Amount left to upgrade density
-		public GameObject building_obj;
 
-		public Building(GameObject obj){
+		public Building(){
 			this.lotSize = 0;
 			this.occupants = 0;
 			this.happiness = 10;
@@ -22,7 +21,6 @@ namespace CityFuture.Buildings{
 			this.expenses = 0;
 			this.liquid_earnings = 0;
 			this.to_upgrade = 10;
-			this.building_obj = obj;
 		}
 
 		public abstract int BuildingUpgrade();

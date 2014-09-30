@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using CityFuture.Buildings.Enums;
+using CityFuture.Buildings.Helpers;
 
 namespace CityFuture.Buildings{
 	public class Industrial : Building
@@ -8,17 +9,19 @@ namespace CityFuture.Buildings{
 		private IndustrialType industrial_type;
 		private IndustrialSize industrial_size;
 		private IndustrialVariation industrial_variation;
-		
 		private int employees;
 		
-		// 3 argument contructor
-		public Industrial (GameObject obj, IndustrialType type, IndustrialSize size,
-		                   IndustrialVariation variation) :base(obj)
+		public static Industrial CreateComponent(GameObject where,
+		                                         IndustrialType parameter1,
+		                                         IndustrialSize parameter2,
+		                                         IndustrialVariation parameter3)
 		{
-			this.industrial_type = type;
-			this.industrial_size = size;
-			this.industrial_variation = variation;
-			this.employees = 0;
+			Industrial myC = where.AddComponent<Industrial>();
+			myC.industrial_type = parameter1;
+			myC.industrial_size = parameter2;
+			myC.industrial_variation = parameter3;
+
+			return myC;
 		}
 
 		public override int BuildingUpgrade()
