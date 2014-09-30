@@ -24,9 +24,9 @@ will be, allowing total control over the economy of the game.
 
 Currently I am building the framework that will backup all the systems of the game.
 
-Phase 1: Creating Buildings, Maps and Agents structure. -Current.  
-Phase 2: Implementing basic functions such as when buildings upgrade, and the initial type & density of the building when
+<b>Phase 1:</b> Creating Buildings, Maps and Agents structure. -Current.  
+<b>Phase 2:</b> Implementing basic functions such as when buildings upgrade, and the initial type & density of the building when
  instantiated based on the environment.  
-phase 3: implementing basic agents functions such as when they are happy, or their needs.  
-Phase 4: Implementing functions of interaction between buildings, creating chain of supply/demand of buildings.  
-phase 5: ...
+<b>phase 3:</b> implementing basic agents functions such as when they are happy, or their needs.  
+<b>Phase 4:</b> Implementing functions of interaction between buildings, creating chain of supply/demand of buildings.  
+<b>phase 5:</b> ...
