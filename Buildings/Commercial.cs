@@ -12,8 +12,8 @@ namespace CityFuture.Buildings{
 		private int employees;
 
 		// 3 argument contructor
-		public Commercial (CommercialType type, CommercialSize size,
-		                   CommercialVariation variation)
+		public Commercial (GameObject obj, CommercialType type, CommercialSize size,
+		                   CommercialVariation variation) :base(obj)
 		{
 			this.commercial_type = type;
 			this.commercial_size = size;

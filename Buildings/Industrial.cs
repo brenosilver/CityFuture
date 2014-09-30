@@ -12,8 +12,8 @@ namespace CityFuture.Buildings{
 		private int employees;
 		
 		// 3 argument contructor
-		public Industrial (IndustrialType type, IndustrialSize size,
-		                   IndustrialVariation variation)
+		public Industrial (GameObject obj, IndustrialType type, IndustrialSize size,
+		                   IndustrialVariation variation) :base(obj)
 		{
 			this.industrial_type = type;
 			this.industrial_size = size;

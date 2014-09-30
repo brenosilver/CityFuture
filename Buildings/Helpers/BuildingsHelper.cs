@@ -14,7 +14,6 @@ namespace CityFuture.Buildings.Helpers{
 		private static int industrial_variations = Enum.GetNames(typeof(IndustrialVariation)).Length;
 		private static int industrial_types = Enum.GetNames(typeof(IndustrialType)).Length;
 
-
 		// Randomize building type
 		public static int[] pickBuilding(BuildingClass building_class)
 		{

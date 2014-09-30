@@ -12,8 +12,8 @@ namespace CityFuture.Buildings{
 		private int kids, elders, adults;
 
 		// 3 argument constructor
-		public Residential (ResidentialType type, ResidentialSize size,
-		                    ResidentialVariation variation)
+		public Residential (GameObject obj, ResidentialType type, ResidentialSize size,
+		                    ResidentialVariation variation) :base(obj)
 		{
 			this.residential_type = type;
 			this.residential_size = size;
