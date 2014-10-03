@@ -10,7 +10,8 @@ namespace CityFuture.Buildings{
 		private IndustrialSize industrial_size;
 		private IndustrialVariation industrial_variation;
 		private int employees;
-		
+
+		// Add building Component to the gameObject
 		public static Industrial CreateComponent(GameObject where,
 		                                         IndustrialType parameter1,
 		                                         IndustrialSize parameter2,

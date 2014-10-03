@@ -1,10 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
-
-namespace CityFuture.Buildings.Enums
+﻿namespace CityFuture.Buildings.Enums
 {
 
-	public enum ResidentialType{
+	public enum ResidentialType
+	{
 		TechHome = 1,
 		LiterateHome = 2,
 		WorkaholicHome = 3,
@@ -13,7 +11,8 @@ namespace CityFuture.Buildings.Enums
 		LazyHome = 6
 	}
 
-	public enum ResidentialSize{
+	public enum ResidentialSize
+	{
 		Shack = 1,
 		TownHouse = 2,
 		SmallApartment = 3,
@@ -21,7 +20,8 @@ namespace CityFuture.Buildings.Enums
 		Skyscraper = 5
 	}
 
-	public enum ResidentialVariation{
+	public enum ResidentialVariation
+	{
 		Layout1 = 1,
 		Layout2 = 2,
 		Layout3 = 3,

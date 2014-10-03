@@ -11,6 +11,7 @@ namespace CityFuture.Buildings{
 		private CommercialVariation commercial_variation;
 		private int employees;
 
+		// Add building Component to the gameObject
 		public static Commercial CreateComponent(GameObject where,
 		                                         CommercialType parameter1,
 		                                         CommercialSize parameter2,
