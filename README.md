@@ -3,16 +3,17 @@ City-Future_CSharp_Game
 
 C# 3D City Building Game using Unity Engine
 
-Goal is to have a game much deeper than the current city building games available.
+The goal is to have a game much deeper than the current city building games currently available.
 
 Chain of production
 ----------------
-With features such as "Chain of production", an item to be made will first go through various types of factories such as: gathering the raw material, then the material will go to the production of the item, and finally the packaging. After all that it will be shipped to local commercial buildings or exported.
+With features such as "Chain of production", every item a commercial building sells will first need to pass through various industrial buildings in order for it acquire its final form. Commercial buildings can also export these items for an increase revenue. 
+
+An item to be made will undergo processes such as: gathering the raw material, production of the item and packaging. After all that it will be shipped to local commercial buildings or exported.
 
 Shops will need to mantain inventory and basic office supplies in order to function.
 
-All these interactions will be handled by the AI, however, it's your job to keep the economy growing and create custom incentives
-for industry, commericial and residential to prosper.
+All these interactions will be handled by the AI, however, it's your job to keep the economy growing and create custom incentives for industry, commercial and residential to prosper.
 
 Total control over the economy with custom incentives
 ----------------
