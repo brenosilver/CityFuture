@@ -17,8 +17,7 @@ All these interactions will be handled by the AI, however, it's your job to keep
 
 Total control over the economy with custom incentives
 ----------------
-It is nothing but a tool that will let you have control over
-the inner variables that compose the economy. Want to increase tax on imports of electronics? want to cut the taxes on
+This is a tool that will let you have control over the inner variables that compose the economy. Want to increase tax on imports of electronics? want to cut the taxes on
 construction supplies for small businesses? Want to set a fixed price for gas? These are a few examples of how powerful this tool
 will be, allowing total control over the economy of the game.
 
