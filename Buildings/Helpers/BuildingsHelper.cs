@@ -24,7 +24,6 @@ namespace CityFuture.Buildings.Helpers{
 			int building_variation = 1;
 
 			// Check what type of building we want
-			// TODO finish inserting building_type
 			if(building_class == BuildingClass.Residential)
 			{
 				building_size = (int)ResidentialSize.Shack;
@@ -32,6 +31,7 @@ namespace CityFuture.Buildings.Helpers{
 				Debug.Log(building_class + " " + (ResidentialSize)building_size + " " + 
 				          (ResidentialVariation)building_variation);
 			}
+
 			else if(building_class == BuildingClass.Commercial)
 			{
 				building_size = (int)CommercialSize.Small;
@@ -39,6 +39,7 @@ namespace CityFuture.Buildings.Helpers{
 				Debug.Log(building_class + " " + (IndustrialSize)building_size + " " + 
 				          (IndustrialVariation)building_variation);
 			}
+
 			else if(building_class == BuildingClass.Industrial)
 			{
 				building_size = (int)IndustrialSize.Small;

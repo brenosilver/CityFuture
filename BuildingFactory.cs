@@ -7,7 +7,7 @@ using CityFuture.General.Exceptions;
 using System;
 
 
-public class BuildingMaker : MonoBehaviour
+public class BuildingFactory : MonoBehaviour
 {
 	private Building new_building;
 	private GameObject prefab;

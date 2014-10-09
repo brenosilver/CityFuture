@@ -5,25 +5,25 @@ using UnityEngine;
 
 namespace CityFuture.Agents
 {
-	public interface IAgent
+	public abstract class Agent : MonoBehaviour
 	{
 		// Hide the agent from the map
-		bool showAgent();
+		public abstract bool showAgent();
 
 		// Hide the agent from the map
-		bool hideAgent();
+		public abstract bool hideAgent();
 
 		// get the id of this agent
-		int getID();
+		public abstract int getID();
 
 		// set the id of this agent
-		void setID(int id);
+		public abstract void setID(int id);
 
 		// Move a given agent to a given Building
-		bool moveAgent(Building origin, Building dest);
+		public abstract bool moveAgent(Building origin, Building dest);
 
 		// Move a given agent to a given Building
-		void moveAgent(Transform origin, Transform dest);
+		public abstract void moveAgent(Transform origin, Transform dest);
 
 	}
 }

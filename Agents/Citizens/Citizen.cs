@@ -2,42 +2,44 @@ using UnityEngine;
 using CityFuture.Buildings;
 using CityFuture.General.Exceptions;
 using CityFuture.General.Enums;
+using CityFuture.Agents.Enums;
 
 namespace CityFuture.Agents{
-	public class Citizen : IAgent
+	public class Citizen : Agent
 	{
-		private string name;
+		private string agent_name;
 		private byte age;
+		private CitizenGender gender;
 		private int id;
 		private Building home;
 		private bool isHomeless;
 		private float income;
-		private SocialStatus socialStatus;
+		private SocialStatus social_status;
 
 
 
 		#region IAgent implementation
-		public bool showAgent ()
+		public override bool showAgent ()
 		{
 			throw new System.NotImplementedException ();
 		}
-		public bool hideAgent ()
+		public override bool hideAgent ()
 		{
 			throw new System.NotImplementedException ();
 		}
-		public int getID ()
+		public override int getID ()
 		{
 			return this.id;
 		}
-		public void setID (int id)
+		public override void setID (int id)
 		{
 			this.id = id;
 		}
-		public bool moveAgent (CityFuture.Buildings.Building origin, CityFuture.Buildings.Building dest)
+		public override bool moveAgent (CityFuture.Buildings.Building origin, CityFuture.Buildings.Building dest)
 		{
 			throw new System.NotImplementedException ();
 		}
-		public void moveAgent (Transform origin, Transform dest)
+		public override void moveAgent (Transform origin, Transform dest)
 		{
 			throw new System.NotImplementedException ();
 		}
@@ -74,6 +76,18 @@ namespace CityFuture.Agents{
 				this.age = age;
 			else
 				throw new NotAProperNumberException("Age must be from 0 to 120");
+		}
+
+		// get age
+		public CitizenGender getGender()
+		{
+			return this.gender;
+		}
+		
+		// set age
+		public void setGender(CitizenGender gender)
+		{
+				this.gender = gender;
 		}
 
 		// get home
@@ -125,7 +139,13 @@ namespace CityFuture.Agents{
 		// get social status of citizen (low middle upper clas)
 		public SocialStatus getSocialStatus()
 		{
-			return this.socialStatus;
+			return this.social_status;
+		}
+
+		// set Social Status
+		public void setSocialStatus(SocialStatus social_status)
+		{
+			this.social_status = social_status;
 		}
 		#endregion
 

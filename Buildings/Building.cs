@@ -11,6 +11,7 @@ namespace CityFuture.Buildings{
 		private bool isEnergy, isWater;
 		private int to_upgrade; // Amount left to upgrade density
 
+		// This is never called since there is no "new" keyword instantiating
 		public Building(){
 			this.lotSize = 0;
 			this.occupants = 0;

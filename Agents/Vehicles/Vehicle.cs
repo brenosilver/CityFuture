@@ -1,7 +1,7 @@
-﻿
+
 namespace CityFuture.Agents
 {
-	public class Vehicle : IAgent
+	public class Vehicle : Agent
 	{
 		private int id;
 		private int speed;
@@ -9,32 +9,32 @@ namespace CityFuture.Agents
 
 		#region IAgent implementation
 
-		public bool showAgent ()
+		public override bool showAgent ()
 		{
 			throw new System.NotImplementedException ();
 		}
 
-		public bool hideAgent ()
+		public override bool hideAgent ()
 		{
 			throw new System.NotImplementedException ();
 		}
 
-		public int getID ()
+		public override int getID ()
 		{
 			return this.id;
 		}
 
-		public void setID (int id)
+		public override void setID (int id)
 		{
 			this.id = id;
 		}
 
-		public bool moveAgent (CityFuture.Buildings.Building origin, CityFuture.Buildings.Building dest)
+		public override bool moveAgent (CityFuture.Buildings.Building origin, CityFuture.Buildings.Building dest)
 		{
 			throw new System.NotImplementedException ();
 		}
 
-		public void moveAgent (UnityEngine.Transform origin, UnityEngine.Transform dest)
+		public override void moveAgent (UnityEngine.Transform origin, UnityEngine.Transform dest)
 		{
 			throw new System.NotImplementedException ();
 		}
