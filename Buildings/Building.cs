@@ -1,19 +1,23 @@
 ﻿using UnityEngine;
 using CityFuture.General.Enums;
+using CityFuture.Buildings.Enums;
 
 namespace CityFuture.Buildings{
 	public abstract class Building : MonoBehaviour
 	{
 		private int lotSize;
+		private DensityType density;
+		private int level;
 		private int occupants;
 		private int happiness;
 		private float income, expenses, liquid_earnings, highWage, midWage, lowWage;
 		private bool isEnergy, isWater;
 		private int to_upgrade; // Amount left to upgrade density
 
-		// This is never called since there is no "new" keyword instantiating
+		// Constructor
 		public Building(){
 			this.lotSize = 0;
+			this.density = DensityType.Low;
 			this.occupants = 0;
 			this.happiness = 10;
 			this.isEnergy = false;
@@ -24,9 +28,11 @@ namespace CityFuture.Buildings{
 			this.to_upgrade = 10;
 		}
 
-		public abstract int BuildingUpgrade();
+		public abstract int buildingUpgrade();
+		public abstract int calculateLevel();
 
-		// Mutable Methods
+
+		#region Setter/Getter methods
 		public int getTo_upgrade(){
 			return this.to_upgrade;
 		}
@@ -44,5 +50,17 @@ namespace CityFuture.Buildings{
 				return this.highWage;
 		}
 
+		// get level
+		public int getLevel()
+		{
+			return this.level;
+		}
+
+		// set level
+		public void setLevel(int level)
+		{
+			this.level = level;
+		}
+		#endregion
 	}
 }

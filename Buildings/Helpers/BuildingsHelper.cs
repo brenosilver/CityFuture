@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using CityFuture.Buildings.Enums;
 using CityFuture.Buildings;
@@ -59,7 +59,7 @@ namespace CityFuture.Buildings.Helpers{
 		// calculates how much the building needs to upgrade to next density
 		public static int toUpgrade(Building building){
 			if(building.getTo_upgrade() == 0)
-				building.BuildingUpgrade();
+				building.buildingUpgrade();
 			return 10;
 		}
 

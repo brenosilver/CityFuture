@@ -7,41 +7,28 @@ using CityFuture.Agents.Enums;
 namespace CityFuture.Agents{
 	public class Citizen : Agent
 	{
-		private string agent_name;
+		private string citizen_name;
 		private byte age;
 		private CitizenGender gender;
-		private int id;
 		private Building home;
 		private bool isHomeless;
 		private float income;
 		private SocialStatus social_status;
 
 
+		#region Agent implementation
+		public override bool moveAgent (Building origin, Building dest)
+		{
+			throw new System.NotImplementedException ();
+		}
 
-		#region IAgent implementation
-		public override bool showAgent ()
+		public override void moveAgent (Vector3 dest)
 		{
-			throw new System.NotImplementedException ();
-		}
-		public override bool hideAgent ()
-		{
-			throw new System.NotImplementedException ();
-		}
-		public override int getID ()
-		{
-			return this.id;
-		}
-		public override void setID (int id)
-		{
-			this.id = id;
-		}
-		public override bool moveAgent (CityFuture.Buildings.Building origin, CityFuture.Buildings.Building dest)
-		{
-			throw new System.NotImplementedException ();
-		}
-		public override void moveAgent (Transform origin, Transform dest)
-		{
-			throw new System.NotImplementedException ();
+			Vector3 new_position = transform.position;
+			new_position.x = dest.x;
+			new_position.y = dest.y;
+			new_position.z = dest.z;
+			transform.position = new_position;
 		}
 		#endregion
 
@@ -49,16 +36,16 @@ namespace CityFuture.Agents{
 		#region Citizen setter/getter methods
 
 		// get name
-		public string getName()
+		public string getAgent_name()
 		{
-			return this.name;
+			return this.citizen_name;
 		}
 
 		// set name
-		public void setName(string name)
+		public void setAgent_name(string name)
 		{
 			if(name.Length >= 2)
-				this.name = name;
+				this.citizen_name = name;
 			else
 				throw new StringTooShortException("The name needs to be at least 2 characters in length");
 		}

@@ -7,23 +7,25 @@ namespace CityFuture.Agents
 {
 	public abstract class Agent : MonoBehaviour
 	{
-		// Hide the agent from the map
-		public abstract bool showAgent();
+		// Properties
+		private int id;
 
 		// Hide the agent from the map
-		public abstract bool hideAgent();
+		public void showAgent(){ renderer.enabled = true; }
 
-		// get the id of this agent
-		public abstract int getID();
-
-		// set the id of this agent
-		public abstract void setID(int id);
+		// Hide the agent from the map
+		public void hideAgent(){ renderer.enabled = false; }
 
 		// Move a given agent to a given Building
 		public abstract bool moveAgent(Building origin, Building dest);
 
 		// Move a given agent to a given Building
-		public abstract void moveAgent(Transform origin, Transform dest);
+		public abstract void moveAgent(Vector3 dest);
+
+		#region setter/getter methods
+		public int getID (){ return this.id; }
+		public void setID (int id){ this.id = id; }
+		#endregion
 
 	}
 }

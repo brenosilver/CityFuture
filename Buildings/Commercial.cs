@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using CityFuture.Buildings.Enums;
 using CityFuture.Buildings.Helpers;
@@ -24,12 +24,18 @@ namespace CityFuture.Buildings{
 
 			return myC;
 		}
-		
+
+		#region implemented abstract members of Building
 		//TODO implement method
-		public override int BuildingUpgrade(){
+		public override int buildingUpgrade(){
 			
 			throw new System.NotImplementedException ();
 		}
-
+		
+		public override int calculateLevel ()
+		{
+			throw new System.NotImplementedException ();
+		}
+		#endregion
 	}
 }

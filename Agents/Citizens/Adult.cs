@@ -1,4 +1,4 @@
-﻿using CityFuture.Buildings;
+using CityFuture.Buildings;
 using UnityEngine;
 using CityFuture.Agents.Enums;
 
@@ -16,7 +16,6 @@ namespace CityFuture.Agents
 		public Employed findJob(Building workplace)
 		{
 			return this.employed = new Employed(this, workplace);
-
 		}
 
 		// Lose Job
