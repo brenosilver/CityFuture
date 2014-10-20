@@ -9,7 +9,7 @@ namespace CityFuture.Streets.Helpers
 		private const string PedestrianPathway = "Prefabs/Streets/pedestrianPathway";
 		private const string DirtRoad = "Prefabs/Streets/dirtRoad";
 		private const string TwoLaneStreet = "Prefabs/Streets/twoLaneStreet";
-		private const string FourLaneStreet = "Prefabs/Streets/fourLaneStreet";
+		private const string FourLaneStreet = "Prefabs/Streets/street4lane";
 		private const string Avenue = "Prefabs/Streets/avenue";
 		private const string DensityAvenue = "Prefabs/Streets/densityAvenue";
 		private const string ParkWay = "Prefabs/Streets/parkWay";

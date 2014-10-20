@@ -8,7 +8,7 @@ namespace CityFuture.Streets.Enums
 		TwoLaneStreet = 3,		// 2 lanes
 		FourLaneStreet = 3,		// 4 lanes
 		Avenue = 4,				// 4 lanes + trees
-		DensityAvenue = 5,		// 4 lanes
+		DenseAvenue = 5,		// 4 lanes
 		AvenuePlusTrain = 6,	// 4 lanes + train lane
 		ParkWay = 7,			// 4 lanes + trees + no trucks allowed
 		Freeway = 8,			// 4 lanes + no crossing
