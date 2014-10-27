@@ -174,43 +174,49 @@ namespace CityFuture.Streets.Helpers
 			road.transform.position = origin + new Vector3(0.0f,0.1f,0.0f);
 
 			// Rotation
-			float angle = SignedAngle(Vector3.right,  end - origin);
-			road.transform.Rotate(Vector3.up, angle, Space.World);
-
-			road.transform.rotation = Quaternion.FromToRotation(Vector3.right, end - origin);
+			road.transform.rotation = Quaternion.LookRotation(end - origin, Vector3.up);
+			//road.transform.rotation = Quaternion.FromToRotation(Vector3.forward, end - origin);
 			if(node_obj_origin.transform.position.y != node_obj_end.transform.position.y)
 			{
-				//Vector3 rot;
-				//RotationRayCast(out rot, road.transform.position, road.transform.rotation.eulerAngles);
-				float vertical_angle = SignedAngle(Vector3.up, road.transform.up); // down
-				Quaternion rota = Quaternion.FromToRotation(origin, Vector3.up);
-				//road.transform.Rotate(road.transform.up, vertical_angle);
-				//road.transform.Rotate(Vector3.right, vertical_angle);
-				//road.transform.rotation = Quaternion.FromToRotation(road.transform.rotation.eulerAngles, road.transform.rotation.eulerAngles);
+				//road.transform.rotation = Quaternion.FromToRotation(Vector3.up, node_end_normal) * road.transform.rotation;
+				//road.transform.rotation = Quaternion.LookRotation(end - origin, node_end_normal);
+				//road.transform.rotation = Quaternion.LookRotation(end - origin, Vector3.up);
+
 				Debug.DrawRay(road.transform.position, node_start_normal * 10, Color.green, 10000.0f, false);
-				Debug.DrawRay(end, node_end_normal * 10, Color.green, 10000.0f, false);
-				Debug.Log(vertical_angle);
+			//	Debug.DrawRay(end, node_end_normal * 10, Color.green, 10000.0f, false);
+				Debug.DrawRay(end, Vector3.up * 10, Color.red, 10000.0f, false);
+				Debug.DrawRay(end , road.transform.up * 10, Color.cyan, 10000.0f, false);
+				Debug.DrawRay(road.transform.position, road.transform.forward * 10, Color.green, 10000.0f, false);
 			}
 
 			// Vertices
 			Vector3[] vertices = {
-				new Vector3(0, 		0, -width/2),
-				new Vector3(length, 0, -width/2),
-				new Vector3(length, 0,  width/2),
-				new Vector3(0, 		0,  width/2),
+				new Vector3(-width/2, 0, length),
+				new Vector3(width/2, 0, length),
+				new Vector3(-width/2, 0, 0),
+				new Vector3(width/2, 0, 0),
 			};
+
+			/*	  Vertex Layout
+			 *  	0 ------1
+			 *      |     / |
+			 *		|   /   |
+			 * 		| /     |
+			 * 		2 ------3
+			 */
 
 			// triangles
 			int[] triangles = {
-				1, 0, 2,
-				2, 0, 3
+				0,1,2,
+				2,1,3
+
 			};
 
 			// UV
 			Vector2[] uv = {
+				new Vector2(length,		0),
+				new Vector2(length,		 1),
 				new Vector2(0,		0),
-				new Vector2(length, 0),
-				new Vector2(length, 1),
 				new Vector2(0, 		1)
 			};
 
@@ -227,11 +233,6 @@ namespace CityFuture.Streets.Helpers
 			return true;
 		}
 
-		float SignedAngle(Vector3 a, Vector3 b){
-			float angle = Vector3.Angle(a, b); // calculate angle
-			// assume the sign of the cross product's Y component:
-			return angle * Mathf.Sign(Vector3.Cross(a, b).y);
-		}
 
 
 		#region Setter && getter methods
