@@ -7,7 +7,7 @@ using CityFuture.Agents.Enums;
 namespace CityFuture.Agents{
 	public class Citizen : Agent
 	{
-		private string citizen_name;
+		public string citizen_name;
 		private byte age;
 		private CitizenGender gender;
 		private Building home;
