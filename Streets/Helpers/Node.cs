@@ -1,19 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace CityFuture.Streets.Helpers
 {
-	public class Node
+	public class Node : MonoBehaviour
 	{
 
 		public Node previous;
-		public GameObject node;
+		public GameObject road;
 		public Node next;
-		public int info;
+		public List<GameObject> roads;
 
-		public Node(GameObject node)
+		public Node(GameObject road)
 		{
-			this.node = node;
+			roads = new List<GameObject>();
+			this.road = road;
 			this.previous = null;
 			this.next = null;
 		}
