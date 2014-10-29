@@ -1,9 +1,7 @@
 City Future
 =======================
 
-C# 3D City Building Game using the Unity Engine
-
-The goal of having a game much deeper than the current city building games currently available.
+C# 3D City Building Game using the Unity Engine, with the goal of having a game much deeper than the current city building games currently available.
 
 Chain of production
 ----------------
