@@ -5,13 +5,14 @@ namespace CityFuture.Streets.Helpers
 {
 	public class NodeClick : MonoBehaviour {
 
-		public CurvedRoad ground2;
-		public StraightRoad road;
+		public CurvedRoad curvedRoad;
+		public StraightRoad straightRoad;
 
 		// On Mouse Down
 		void OnMouseDown()
 		{
-			road.setNodeStart(gameObject);
+			straightRoad.setNodeStart(gameObject);
 		}
+
 	}
 }

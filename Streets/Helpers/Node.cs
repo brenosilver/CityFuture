@@ -8,14 +8,14 @@ namespace CityFuture.Streets.Helpers
 	{
 
 		public Node previous;
-		public GameObject road;
+		public GameObject node;
 		public Node next;
-		public List<GameObject> roads;
+		public List<GameObject> connected_roads;
 
-		public Node(GameObject road)
+		public Node(GameObject node)
 		{
-			roads = new List<GameObject>();
-			this.road = road;
+			connected_roads = new List<GameObject>();
+			this.node = node;
 			this.previous = null;
 			this.next = null;
 		}

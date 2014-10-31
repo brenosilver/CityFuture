@@ -89,7 +89,7 @@ namespace CityFuture.Streets.Helpers
 				{
 					node_start = Instantiate(prefab_node, street_start, Quaternion.identity) as GameObject;
 					// Set last node as current one
-					node_start.GetComponent<NodeClick>().ground2 = this;
+					node_start.GetComponent<NodeClick>().curvedRoad = this;
 					nodeColStart = NodeColliderType.OnTerrain;
 				}
 			}
@@ -104,7 +104,7 @@ namespace CityFuture.Streets.Helpers
 				{
 					node_end = Instantiate(prefab_node, street_end, Quaternion.identity) as GameObject;
 					// Set last node as current one
-					node_end.GetComponent<NodeClick>().ground2 = this;
+					node_end.GetComponent<NodeClick>().curvedRoad = this;
 					
 					nodeColEnd = NodeColliderType.OnTerrain;
 					

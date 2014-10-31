@@ -3,7 +3,6 @@ using System.Collections;
 using System;
 
 // TODO Fix linked list order
-// TODO Fix Obj origin null ref
 
 namespace CityFuture.Streets.Helpers
 {
@@ -48,8 +47,6 @@ namespace CityFuture.Streets.Helpers
 			// Mouse Button Down
 			if(Input.GetMouseButtonDown(0))
 			{
-				//Vector3 node_start_pos;
-
 				// hit terrain
 				if(TerrainRayCast(out node_start_pos, out node_start_normal))
 				{
@@ -57,7 +54,7 @@ namespace CityFuture.Streets.Helpers
 					node_obj_origin.transform.parent = NodeParent.transform;
 
 					// Set last node clicked as current one
-					node_obj_origin.GetComponent<NodeClick>().road = this;
+					node_obj_origin.GetComponent<NodeClick>().straightRoad = this;
 					node_list.add(node_obj_origin);
 
 					node_origin_collider = NodeColliderType.OnTerrain;
@@ -70,6 +67,7 @@ namespace CityFuture.Streets.Helpers
 			{
 				if(node_obj_origin != null)
 				{
+					GameObject nodeHit;
 					// MouseUp hit terrain
 					if(TerrainRayCast(out node_end_pos, out node_end_normal))
 					{
@@ -77,29 +75,41 @@ namespace CityFuture.Streets.Helpers
 						node_obj_end.transform.parent = NodeParent.transform;
 
 						// Set last node clicked as current one
-						node_obj_end.GetComponent<NodeClick>().road = this;
+						node_obj_end.GetComponent<NodeClick>().straightRoad = this;
 						node_end_collider = NodeColliderType.OnTerrain;
 
 						// if road was not created delete nodes
 						if(!createRoad(node_obj_origin.transform.position, node_obj_end.transform.position))
 							destroyNodes();
 						else
+						{
+							// add node to list and register road to node
 							node_list.add(node_obj_end);
+							//node_list.insert(node_obj_origin, node_obj_end);
+							node_obj_origin.GetComponent<Node>().connected_roads.Add(this.road);
+							node_obj_end.GetComponent<Node>().connected_roads.Add(this.road);
+						}
 
 						Debug.Log ("Node Count: " + node_list.countIt(node_list.list));
 					}
 
 					// MouseUp hit node
-					else if(NodeRayCast(out node_end_pos))
+					else if(NodeRayCast(out nodeHit))
 					{
+						node_obj_end = nodeHit.collider.transform.parent.gameObject;
 						node_end_collider = NodeColliderType.OnNode;
-						if(!createRoad(node_obj_origin.transform.position, node_end_pos))
+						if(!createRoad(node_obj_origin.transform.position, node_obj_end.transform.position))
 							destroyNodes();
 
+						else{
+							// register road to node
+							node_obj_origin.GetComponent<Node>().connected_roads.Add(this.road);
+							node_obj_end.GetComponent<Node>().connected_roads.Add(this.road);
+						}
 						Debug.Log ("Node Count: " + node_list.countIt(node_list.list));
 					}
 				}
-				//node_obj_origin = null; // this was causing a null ref when creating a road
+
 			}
 
 		}
@@ -126,7 +136,8 @@ namespace CityFuture.Streets.Helpers
 		}
 
 		// Collide with Node
-		bool NodeRayCast(out Vector3 point)
+		// return hit
+		bool NodeRayCast(out GameObject point)
 		{
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit = new RaycastHit();
@@ -135,11 +146,11 @@ namespace CityFuture.Streets.Helpers
 			{
 				if(hit.collider.transform.parent != null && hit.collider.transform.parent.tag == "Node")
 				{
-					point = hit.point;
+					point = hit.collider.gameObject;
 					return true;
 				}
 			}
-			point = Vector3.zero;
+			point = null;
 			return false;
 		}
 
@@ -168,17 +179,14 @@ namespace CityFuture.Streets.Helpers
 		}
 
 
-
 		// Create Road method
 		bool createRoad(Vector3 origin, Vector3 end)
 		{
 			float length = Vector3.Distance(origin, end);
 			float width = 5.0f;
 
+			Debug.Log("Distance: " + length);
 			if(length < min_road_length)
-				return false;
-
-			if(origin == null && end == null)
 				return false;
 
 			road = Instantiate(Resources.Load(ROAD_PATH)) as GameObject;
@@ -188,11 +196,8 @@ namespace CityFuture.Streets.Helpers
 			road.transform.rotation = Quaternion.LookRotation(end - origin, Vector3.up);
 			//road.transform.rotation = Quaternion.FromToRotation(Vector3.forward, end - origin);
 
-			// If roads are in the same plane
-			if(node_obj_origin.transform.position.y == node_obj_end.transform.position.y){
-				road.transform.eulerAngles = new Vector3(0.0f,road.transform.eulerAngles.y,0.0f);
-			}
-			else if(node_obj_origin.transform.position.y != node_obj_end.transform.position.y)
+			// If roads are not in the same plane
+			if(node_obj_origin.transform.position.y != node_obj_end.transform.position.y)
 			{
 				//road.transform.rotation = Quaternion.FromToRotation(Vector3.up, node_end_normal) * road.transform.rotation;
 				//road.transform.rotation = Quaternion.LookRotation(end - origin, node_end_normal);
@@ -207,9 +212,9 @@ namespace CityFuture.Streets.Helpers
 			// Vertices
 			Vector3[] vertices = {
 				new Vector3(-width/2, 0, length),
-				new Vector3(width/2, 0, length),
-				new Vector3(-width/2, 0, 0),
-				new Vector3(width/2, 0, 0),
+				new Vector3( width/2, 0, length),
+				new Vector3(-width/2, 0,	  0),
+				new Vector3( width/2, 0, 	  0),
 			};
 
 			/*	  Vertex Layout
@@ -224,7 +229,6 @@ namespace CityFuture.Streets.Helpers
 			int[] triangles = {
 				0,1,2,
 				2,1,3
-
 			};
 
 			// UV

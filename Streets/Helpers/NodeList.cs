@@ -15,12 +15,11 @@ namespace CityFuture.Streets.Helpers
 		}
 
 		// Add node
-		public void add(GameObject newNode)
+		public void add(GameObject new_node)
 		{
 			//Node node = new Node(newNode);
-			Node node = newNode.GetComponent<Node>();
-			node.roads.Add(newNode);
-			node.road = newNode;
+			Node node = new_node.GetComponent<Node>();
+			node.node = new_node;
 
 			Node current;
 
@@ -38,6 +37,57 @@ namespace CityFuture.Streets.Helpers
 			}
 		}
 
+		public void insert(GameObject index_node, GameObject new_node)
+		{
+			Node node = new_node.GetComponent<Node>();
+			node.node = new_node;
+
+			Node current;
+			Node previous = null;
+			bool done = false;
+
+			if(isEmpty())
+				list = node;
+
+			else
+			{
+				/*current = list;
+				while(!done)
+				{
+					if(current.GetInstanceID() != index_node.GetInstanceID())
+					{
+						if(previous != null)
+							previous.next = node;
+
+						else
+							list = node;
+					}
+					node.next = current;
+					done = true;
+
+				}*/
+
+				current = index_node.GetComponent<Node>();
+				while(!done)
+				{
+					// Mouse origin on Node
+					if (current.next == null)   // add after current
+					{
+						current.next = node;
+						current.next.previous = current;
+						done = true;
+					}
+					else // move to next
+					{
+						previous = current;
+						current = current.next;
+					}
+
+				}
+			}
+
+		}
+
 		// get the passed node
 		public Node getNode(GameObject obj)
 		{
@@ -46,7 +96,7 @@ namespace CityFuture.Streets.Helpers
 			Node temp = list;
 			while(temp != null)
 			{
-				if(temp.road.GetInstanceID() == currentId)
+				if(temp.node.GetInstanceID() == currentId)
 					return temp;
 				temp = temp.next;
 			}
@@ -61,7 +111,7 @@ namespace CityFuture.Streets.Helpers
 			Node temp = list;
 			while(temp != null)
 			{
-				if(temp.road.GetInstanceID() == currentId)
+				if(temp.node.GetInstanceID() == currentId)
 					if(temp.next != null)
 						return temp.next;
 				temp = temp.next;
@@ -77,7 +127,7 @@ namespace CityFuture.Streets.Helpers
 			Node temp = list;
 			while(temp != null)
 			{
-				if(temp.road.GetInstanceID() == currentId)
+				if(temp.node.GetInstanceID() == currentId)
 					if(temp.previous != null)
 						return temp.previous;
 				temp = temp.previous;
@@ -98,7 +148,7 @@ namespace CityFuture.Streets.Helpers
 
 			else
 			{
-				while(current.road.GetInstanceID() != currentId)
+				while(current.node.GetInstanceID() != currentId)
 				{
 					if(current.next == null)
 						return null;
