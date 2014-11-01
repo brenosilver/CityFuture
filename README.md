@@ -28,6 +28,16 @@ Currently I am building the framework that will backup all the systems of the ga
 <b>Phase 3:</b> Implementing basic agents functions such as when they are happy, or their needs.   
 <b>Phase 4:</b> Implementing functions of interaction between buildings, creating chain of supply/demand of buildings.   
 <b>Phase 5:</b> ...   
-  
+   
+ Contribute
+----------------
+ The project needs any help you can give.
+ <ul><li> 3D artists</li>
+ <li> Programmers</li>
+ <li> Shader programmers</li>
+ </ul>
+   
+ If you like the idea of the project and want to contribute, contact me via email(in profle) and I will send you the Unity project folder.
+      
 <b>Visit the dev blog for weekly updates on the project:</b>
 [http://cityfuture.tumblr.com/](New Dev Blog fresh for ya: http://cityfuture.tumblr.com/)
