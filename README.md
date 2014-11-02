@@ -7,7 +7,7 @@ Chain of production
 ----------------
 With features such as "Chain of production", every item a commercial building sells will first need to pass through various industrial buildings in order for it acquire its final form. Commercial buildings can also export these items for an increase revenue.  
 
-All cars in the game will first need to be made by the industry and then sold by a car dealer (commercial).  
+All cars in the game will first need to be made by the industry or imported and then sold by a car dealer (commercial).  
 
 An item to be made will undergo processes such as; gathering the raw material, production of the item, and packaging. After all that it will be shipped to local commercial buildings or exported.
 
