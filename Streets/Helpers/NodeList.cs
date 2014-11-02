@@ -14,13 +14,13 @@ namespace CityFuture.Streets.Helpers
 			list = null;
 		}
 
-		// Add node
+		// Add node to the end of the list
 		public void add(GameObject new_node)
 		{
 			//Node node = new Node(newNode);
 			Node node = new_node.GetComponent<Node>();
 			node.node = new_node;
-
+			Debug.Log("add");
 			Node current;
 
 			if(list == null){
@@ -37,6 +37,53 @@ namespace CityFuture.Streets.Helpers
 			}
 		}
 
+		// Add a break and add a node
+		public void add2(GameObject new_node)
+		{
+			//Node node = new Node(newNode);
+			Node node = new_node.GetComponent<Node>();
+			node.node = new_node;
+			Debug.Log("add2");
+			Node current;
+			
+			if(list == null){
+				list = node;
+			}
+
+			else
+			{
+				current = node;
+				/*while(current.next != null){
+					current = current.next;
+				}
+				current = node;
+				current.next.previous = current;*/
+			}
+		}
+
+		// Add node after break
+		public void add3(GameObject new_node)
+		{
+			//Node node = new Node(newNode);
+			Node node = new_node.GetComponent<Node>();
+			node.node = new_node;
+			Debug.Log("add3");
+			Node current;
+			
+			if(list == null){
+				list = node;
+			}
+			else
+			{
+				current = node;
+				/*while(current.next != null){
+					current = current.next;
+				}*/
+				current.next = node;
+				current.next.previous = current;
+			}
+		}
+		
 		public void insert(GameObject index_node, GameObject new_node)
 		{
 			Node node = new_node.GetComponent<Node>();
@@ -45,42 +92,43 @@ namespace CityFuture.Streets.Helpers
 			Node current;
 			Node previous = null;
 			bool done = false;
-
+			Debug.Log("insert");
 			if(isEmpty())
 				list = node;
 
 			else
 			{
-				/*current = list;
-				while(!done)
-				{
-					if(current.GetInstanceID() != index_node.GetInstanceID())
-					{
-						if(previous != null)
-							previous.next = node;
-
-						else
-							list = node;
-					}
-					node.next = current;
-					done = true;
-
-				}*/
-
 				current = index_node.GetComponent<Node>();
 				while(!done)
 				{
-					// Mouse origin on Node
-					if (current.next == null)   // add after current
+					 if(current.previous == null)   			// add before current
+					{
+						current.previous = node;
+						current.previous.next = current;
+						done = true;
+					}
+					else if (current.next == null)				// add after current
 					{
 						current.next = node;
 						current.next.previous = current;
 						done = true;
 					}
-					else // move to next
+					else if(current.intersectionT == null) 		// add when 3way intersection
+					{
+						current.intersectionT = node;
+						current.intersectionT.next = current;
+						done = true;
+					}
+					else if(current.intersectionCross == null) 	// add when 4way intersection
+					{
+						current.intersectionCross = node;
+						current.intersectionCross.next = current;
+						done = true;
+					}
+					else // move to previous in the list
 					{
 						previous = current;
-						current = current.next;
+						current = current.previous;
 					}
 
 				}

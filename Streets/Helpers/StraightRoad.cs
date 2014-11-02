@@ -2,7 +2,8 @@
 using System.Collections;
 using System;
 
-// TODO Fix linked list order
+// TODO Fix Disconnected roads but connected node in nodelist
+// TODO Set max number of intersections
 
 namespace CityFuture.Streets.Helpers
 {
@@ -55,7 +56,10 @@ namespace CityFuture.Streets.Helpers
 
 					// Set last node clicked as current one
 					node_obj_origin.GetComponent<NodeClick>().straightRoad = this;
-					node_list.add(node_obj_origin);
+					//if(node_obj_origin.GetComponent<Node>().connected_roads.Count <= 0)
+					//	node_list.add2(node_obj_origin);
+					//else
+						node_list.add(node_obj_origin);
 
 					node_origin_collider = NodeColliderType.OnTerrain;
 					Debug.Log ("Node Count: " + node_list.countIt(node_list.list));
@@ -84,8 +88,11 @@ namespace CityFuture.Streets.Helpers
 						else
 						{
 							// add node to list and register road to node
-							node_list.add(node_obj_end);
-							//node_list.insert(node_obj_origin, node_obj_end);
+							if(node_obj_origin.GetComponent<Node>().connected_roads.Count <= 0)
+								node_list.add(node_obj_end);
+							else
+								node_list.insert(node_obj_origin, node_obj_end);
+
 							node_obj_origin.GetComponent<Node>().connected_roads.Add(this.road);
 							node_obj_end.GetComponent<Node>().connected_roads.Add(this.road);
 						}

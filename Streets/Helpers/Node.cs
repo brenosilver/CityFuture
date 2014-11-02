@@ -10,6 +10,8 @@ namespace CityFuture.Streets.Helpers
 		public Node previous;
 		public GameObject node;
 		public Node next;
+		public Node intersectionT;
+		public Node intersectionCross;
 		public List<GameObject> connected_roads;
 
 		public Node(GameObject node)
