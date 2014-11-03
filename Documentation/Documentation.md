@@ -8,24 +8,24 @@ With that in mind, I settled to produce the game of my dreams as a medium to lea
 #####Game Mechanics -	 							work in progress  
   
 1.	Map should start relatively small. Player should buy smaller plots of land in order to expand the city borders.  
-  A.	Plot’s price should be exponentially higher.  
+  * a.	Plot’s price should be exponentially higher.  
   
 2.	Almost everything in the game has to be produced by the industry and/or commercial buildings, or imported from the outside. Ex: cars, office supplies, gas, groceries.  
 
 3.	Player will be able to control the price or not (free market) of a few products in the game. Ex: gas, water, electricity by subsidization.  
-  A.	If price is lower than it should, government will pay for the difference. Else, the difference will be granted to the company providing the product.
+  * a.	If price is lower than it should, government will pay for the difference. Else, the difference will be granted to the company providing the product.
 
 4.	Companies (industrial and commercial) will be able to acquire other companies with the possibility to form a monopoly.  
-  A.	This acquisition will depend on how well the company is doing regarding funds, current sales and government policies / incentives.
+  * a.	This acquisition will depend on how well the company is doing regarding funds, current sales and government policies / incentives.
 
 5.	Government policies / incentives will be a way for the player to set ground rules for businesses and control variables of the economy such as taxation rate on specific products. Refer to Game Mechanic #3.
 
 6.	Citizens will have many education advancement options like in the real world. Ex: elementary school, high school, college, Masters and PHD.  
-  A.	The higher the education the higher the citizen will be paid.
+  * a.	The higher the education the higher the citizen will be paid.
 
 7.	Companies will always be owned by one or more citizens.
 
 8.	Citizens can be:  
-  A.	 Kid student / not student (homeless / not homeless).  
-  B.	Adult employed / unemployed (homeless / not homeless).  
-  C.	Elder employed / unemployed (homeless / not homeless).
+  * a.	 Kid student / not student (homeless / not homeless).  
+  * b.	Adult employed / unemployed (homeless / not homeless).  
+  * c.	Elder employed / unemployed (homeless / not homeless).
